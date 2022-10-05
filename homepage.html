@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogIn</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+  <body>
+    <div class="min-h-full">
+      <header class="bg-cyan-700 pb-24">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div
+            class="relative flex items-center justify-center py-5 lg:justify-between"
+          >
+            <!-- Logo -->
+            <div class="absolute left-0 flex-shrink-0 lg:static">
+              <span class="text-white text-2xl font-bold">PALS</span>
+              </a>
+            </div>
+            <!-- Search -->
+            <div class="min-w-0 flex-1 px-12 lg:hidden">
+              <div class="mx-auto w-full max-w-xs">
+                <label for="desktop-search" class="sr-only">Search</label>
+                <div class="relative text-white focus-within:text-gray-600">
+                  <div
+                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-white border-opacity-20 py-5 lg:block">
+            <div class="grid grid-cols-3 items-center gap-8">
+              <div class="col-span-2">
+                <nav class="flex space-x-4">
+                  <!-- Current: "text-white", Default: "text-indigo-100" -->
+                  <a
+                    href="#"
+                    class="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10"
+                    aria-current="page"
+                    >Home</a
+                  >
+
+                  <a
+                    href="#"
+                    class="text-indigo-100 text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10"
+                    >Profile</a
+                  >
+                </nav>
+              </div>
+              <div>
+                <div class="mx-auto w-full max-w-md">
+                  <label for="mobile-search" class="sr-only">Search</label>
+                  <div class="relative text-white focus-within:text-gray-600">
+                    <div
+                      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                    >
+                      <!-- Heroicon name: mini/magnifying-glass -->
+                      <svg
+                        class="h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      id="mobile-search"
+                      class="block w-full rounded-md border border-transparent bg-white bg-opacity-20 py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-white focus:border-transparent focus:bg-opacity-100 focus:placeholder-gray-500 focus:outline-none focus:ring-0 sm:text-sm"
+                      placeholder="Search"
+                      type="search"
+                      name="search"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="-mt-24 pb-8">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h1 class="sr-only">Page title</h1>
+          <!-- Main 3 column grid -->
+          <div
+            class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8"
+          >
+            <!-- Left column -->
+            <div class="grid grid-cols-1 gap-4 lg:col-span-2">
+              <section aria-labelledby="section-1-title">
+                <h2 class="sr-only" id="section-1-title">Section title</h2>
+                <div class="overflow-hidden rounded-lg bg-white shadow">
+                  <div class="p-6">
+                      <ul role="list" class="divide-y divide-gray-200">
+    <li class="py-4">
+      <div class="flex space-x-3">
+        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium">Lindsay Walton</h3>
+            <p class="text-sm text-gray-500">1h</p>
+          </div>
+          <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+        </div>
+      </div>
+    </li>
+<div>
+  <ul role="list" class="divide-y divide-gray-200">
+    <li class="py-4">
+      <div class="flex space-x-3">
+        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium">Lindsay Walton</h3>
+            <p class="text-sm text-gray-500">1h</p>
+          </div>
+          <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- More items... -->
+  </ul>
+</div>
+<div>
+  <ul role="list" class="divide-y divide-gray-200">
+    <li class="py-4">
+      <div class="flex space-x-3">
+        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium">Lindsay Walton</h3>
+            <p class="text-sm text-gray-500">1h</p>
+          </div>
+          <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- More items... -->
+  </ul>
+</div>
+<div>
+  <ul role="list" class="divide-y divide-gray-200">
+    <li class="py-4">
+      <div class="flex space-x-3">
+        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium">Lindsay Walton</h3>
+            <p class="text-sm text-gray-500">1h</p>
+          </div>
+          <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- More items... -->
+  </ul>
+</div>
+<div>
+  <ul role="list" class="divide-y divide-gray-200">
+    <li class="py-4">
+      <div class="flex space-x-3">
+        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium">Lindsay Walton</h3>
+            <p class="text-sm text-gray-500">1h</p>
+          </div>
+          <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- More items... -->
+  </ul>
+</div>
+<div>
+  <ul role="list" class="divide-y divide-gray-200">
+    <li class="py-4">
+      <div class="flex space-x-3">
+        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium">Lindsay Walton</h3>
+            <p class="text-sm text-gray-500">1h</p>
+          </div>
+          <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- More items... -->
+  </ul>
+</div>
+                    <!-- Your content -->
+                    
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- Right column -->
+            <div class="grid grid-cols-1 gap-4">
+              <section aria-labelledby="section-2-title">
+                <h2 class="sr-only" id="section-2-title">Section title</h2>
+                <div class="overflow-hidden rounded-lg bg-white shadow">
+                  <div class="p-6">
+                    <div>
+<form action="#" class="relative">
+  <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+    <label for="title" class="sr-only">Title</label>
+    <input type="text" name="title" id="title" class="block w-full border-0 pt-2.5 text-lg font-medium placeholder-gray-500 focus:ring-0" placeholder="Title">
+    <label for="description" class="sr-only">message</label>
+    <textarea rows="2" name="description" id="description" class="block w-full resize-none border-0 py-0 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Write a message..."></textarea>
+
+    <!-- Spacer element to match the height of the toolbar -->
+    <div aria-hidden="true">
+      <div class="py-2">
+        <div class="h-9"></div>
+      </div>
+      <div class="h-px"></div>
+      <div class="py-2">
+        <div class="py-px">
+          <div class="h-9"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute inset-x-px bottom-0">
+    <!-- Actions: These are just examples to demonstrate the concept, replace/wire these up however makes sense for your project. -->
+
+    <div class="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
+      <div class="flex">
+      </div>
+      <div class="flex-shrink-0">
+        <button type="submit" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send!</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div
+            class="border-t border-gray-200 py-8 text-center text-sm text-gray-500 sm:text-left"
+          >
+            <span class="block sm:inline">&copy; 2021 Your Company, Inc.</span>
+            <span class="block sm:inline">All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
