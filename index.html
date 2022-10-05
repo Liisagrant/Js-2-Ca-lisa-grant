@@ -5,7 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration</title>
-    <script type="module" src="/main.js" defer></script>
+    <script type="module" src="./js/main.js" defer></script>
+    <script type="module" src="./js/components/nav.js" defer></script>
   </head>
   <body>
     <header class="bg-cyan-700">
@@ -33,7 +34,7 @@
             <p class="mt-2 text-sm text-gray-600">
               Or
               <a
-                href="#"
+                href="login.html"
                 class="font-medium text-indigo-600 hover:text-indigo-500"
                 >Sign in to your account</a
               >
@@ -56,7 +57,49 @@
               </div>
             </div>
             <div class="mt-6">
-              <form action="#" method="POST" class="space-y-6">
+              <form
+                id="contact-form"
+                action="#"
+                method="POST"
+                class="space-y-6"
+              >
+                <div>
+                  <label
+                    for="firstname"
+                    class="block text-sm font-medium text-gray-700"
+                    >First Name</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      id="firstname"
+                      name="firstname"
+                      type="firstname"
+                      autocomplete="firstname"
+                      required
+                      class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                  <span id="firstnameError" class="hidden text-sm text-red-500"
+                    >Please enter your first name
+                  </span>
+                </div>
+                <div>
+                  <label
+                    for="lastname"
+                    class="block text-sm font-medium text-gray-700"
+                    >Last Name</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      id="lastName"
+                      name="lastname"
+                      type="lastname"
+                      autocomplete="lastname"
+                      required
+                      class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
                 <div>
                   <label
                     for="email"
@@ -109,23 +152,6 @@
                     />
                   </div>
                 </div>
-
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                    />
-                    <label
-                      for="remember-me"
-                      class="ml-2 block text-sm text-gray-900"
-                      >Remember me</label
-                    >
-                  </div>
-                </div>
-
                 <div>
                   <button
                     type="submit"
@@ -270,7 +296,7 @@
           </a>
         </div>
         <p class="mt-8 text-center text-base text-gray-400">
-          &copy; 2020 Pals, Inc. All rights reserved.
+          &copy; 2022 Pals, Inc. All rights reserved.
         </p>
       </div>
     </footer>
