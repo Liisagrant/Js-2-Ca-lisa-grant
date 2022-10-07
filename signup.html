@@ -71,7 +71,6 @@
                       name="firstname"
                       type="firstname"
                       autocomplete="firstname"
-                      required
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
@@ -91,7 +90,6 @@
                       name="email"
                       type="email"
                       autocomplete="email"
-                      required
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
@@ -112,11 +110,10 @@
                       name="password"
                       type="password"
                       autocomplete="current-password"
-                      required
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
-                  <span id="emailError" class="hidden text-sm text-red-500"
+                  <span id="passwordError" class="hidden text-sm text-red-500"
                     >Please enter a password with atleast 8 characters
                   </span>
                 </div>
@@ -132,11 +129,17 @@
                       name="password"
                       type="password"
                       autocomplete="current-password"
-                      required
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
-                  <span id="emailError" class="hidden text-sm text-red-500"
+                  <span
+                    id="confirmpasswordError"
+                    class="hidden text-sm text-red-500"
+                    >Please enter a password with atleast 8 characters
+                  </span>
+                  <span
+                    id="confirmpasswordError"
+                    class="hidden text-sm text-red-500"
                     >Please enter a password with atleast 8 characters
                   </span>
                 </div>

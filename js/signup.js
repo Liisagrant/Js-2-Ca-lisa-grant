@@ -16,12 +16,12 @@ console.log(emailNotValid);
 console.log(emailError);
 
 const password = document.querySelector("#password");
-const passwordError = document.querySelector("#passwordErrorNotValid");
+const passwordError = document.querySelector("#passwordError");
 console.log(password);
 console.log(passwordError);
 
 const confirmPassword = document.querySelector("#confirmpassword");
-const confirmPasswordError = document.querySelector("#confirmPasswordError");
+const confirmPasswordError = document.querySelector("#confirmpasswordError");
 const PasswordNoMatchError = document.querySelector("#passwordErrorNotMatch");
 console.log(confirmPassword);
 console.log(confirmPasswordError);
@@ -56,7 +56,7 @@ const submitForm = (event) => {
 
   let isPasswordOK = false;
   if (checkLength(password.value, 8)) {
-    passwordError.classList.add("#hidden");
+    passwordError.classList.add("hidden");
     isPasswordOK = true;
   } else {
     passwordError.classList.remove("hidden");
