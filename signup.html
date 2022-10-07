@@ -82,7 +82,7 @@
                   <label
                     for="email"
                     class="block text-sm font-medium text-gray-700"
-                    >Email address</label
+                    >Email</label
                   >
                   <div class="mt-1">
                     <input
@@ -95,6 +95,13 @@
                   </div>
                   <span id="emailError" class="hidden text-sm text-red-500"
                     >Please enter valid email
+                  </span>
+                  <span
+                    id="emailErrorNotValid"
+                    class="hidden text-sm text-red-500"
+                  >
+                    This email is not valid. It must be a noroff.no or
+                    noroff.stud.no address
                   </span>
                 </div>
 
@@ -141,6 +148,11 @@
                     id="confirmpasswordError"
                     class="hidden text-sm text-red-500"
                     >Please enter a password with atleast 8 characters
+                  </span>
+                  <span
+                    id="passwordErrorNotMatch"
+                    class="hidden text-sm text-red-500"
+                    >Password does not match
                   </span>
                 </div>
                 <div>
