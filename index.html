@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LogIn</title>
+    <title>Registration</title>
     <script type="module" src="./js/main.js" defer></script>
-    <script type="module" src="./js/signup.js" defer></script>
   </head>
   <body>
     <header class="bg-cyan-700">
@@ -24,13 +23,21 @@
     </header>
     <div class="flex min-h-full">
       <div
-        class="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
+        class="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-40 xl:px-24"
       >
-        <div class="mx-auto w-full max-w-sm lg:w-96">
+        <div class="mx-auto w-full max-w-sm lg:w-100">
           <div>
             <h1 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">
               LogIn
             </h1>
+            <p class="mt-2 text-sm text-gray-600">
+              Or
+              <a
+                href="index.html"
+                class="font-medium text-indigo-600 hover:text-indigo-500"
+                >Sign up</a
+              >
+            </p>
           </div>
           <div class="mt-8">
             <div>
@@ -49,32 +56,12 @@
               </div>
             </div>
             <div class="mt-6">
-              <form id="signup-form" action="#" method="POST" class="space-y-6">
-                <div>
-                  <label
-                    for="firstname"
-                    class="block text-sm font-medium text-gray-700"
-                    >First Name: (Required)</label
-                  >
-                  <div class="mt-1">
-                    <input
-                      id="firstname"
-                      name="firstname"
-                      type="firstname"
-                      autocomplete="firstname"
-                      class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    />
-                  </div>
-                  <span id="firstnameError" class="hidden text-sm text-red-500"
-                    >Please enter your first name
-                  </span>
-                </div>
-              <form action="#" method="POST" class="space-y-6">
+              <form id="signin-form" action="#" method="POST" class="space-y-6">
                 <div>
                   <label
                     for="email"
                     class="block text-sm font-medium text-gray-700"
-                    >Email (Required)</label
+                    >Email</label
                   >
                   <div class="mt-1">
                     <input
@@ -85,14 +72,16 @@
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
+                  <span id="emailError" class="hidden text-sm text-red-500"
+                    >Please enter a email this is requierd
+                  </span>
                   <span
                     id="emailErrorNotValid"
                     class="hidden text-sm text-red-500"
-                    >Please enter a valid email. Email must me a noroff.no or
-                    noroff.stud.no email address!
-                  </span>
-                  <span id="emailError" class="hidden text-sm text-red-500"
-                    >Email is required
+                  >
+                    This email is not valid. It must be a noroff.no or
+                    noroff.stud.no address. If you dont have a valid email
+                    please sign up.
                   </span>
                 </div>
 
@@ -111,27 +100,10 @@
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
-                  <span
-                    id="passwordErrorNotValid"
-                    class="hidden text-sm text-red-500"
-                    >Your password must be more than 8 characters
+                  <span id="passwordError" class="hidden text-sm text-red-500"
+                    >Wrong password or user name
                   </span>
                 </div>
-              
-                  </div>
-                  <span
-                    id="passwordErrorNotMatch"
-                    class="hidden text-sm text-red-500"
-                    >Your password does not match.
-                  </span>
-                  <span
-                    id="confirmPasswordError"
-                    class="hidden text-sm text-red-500"
-                    >Your password must be more than 8 characters and is
-                    requierd
-                  </span>
-                </div>
-
                 <div>
                   <button
                     type="submit"
@@ -153,6 +125,7 @@
         />
       </div>
     </div>
+    <!-- This example requires Tailwind CSS v2.0+ -->
     <footer class="bg-white">
       <div class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
