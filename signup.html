@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LogIn</title>
+    <title>Registration</title>
     <script type="module" src="./js/main.js" defer></script>
+    <script type="module" src="./js/signup.js" defer></script>
     <script type="module" src="./js/components/nav.js" defer></script>
   </head>
   <body>
@@ -29,8 +30,16 @@
         <div class="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <h1 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">
-              LogIn
+              Registrer as a user
             </h1>
+            <p class="mt-2 text-sm text-gray-600">
+              Or
+              <a
+                href="index.html"
+                class="font-medium text-indigo-600 hover:text-indigo-500"
+                >Sign in to your account</a
+              >
+            </p>
           </div>
           <div class="mt-8">
             <div>
@@ -49,7 +58,27 @@
               </div>
             </div>
             <div class="mt-6">
-              <form action="#" method="POST" class="space-y-6">
+              <form id="signup-form" action="#" method="POST" class="space-y-6">
+                <div>
+                  <label
+                    for="firstname"
+                    class="block text-sm font-medium text-gray-700"
+                    >First Name</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      id="firstname"
+                      name="firstname"
+                      type="firstname"
+                      autocomplete="firstname"
+                      required
+                      class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                  <span id="firstnameError" class="hidden text-sm text-red-500"
+                    >Please enter your first name
+                  </span>
+                </div>
                 <div>
                   <label
                     for="email"
@@ -66,6 +95,9 @@
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
+                  <span id="emailError" class="hidden text-sm text-red-500"
+                    >Please enter valid email
+                  </span>
                 </div>
 
                 <div class="space-y-1">
@@ -84,23 +116,30 @@
                       class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
                   </div>
+                  <span id="emailError" class="hidden text-sm text-red-500"
+                    >Please enter a password with atleast 8 characters
+                  </span>
                 </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center">
+                <div class="space-y-1">
+                  <label
+                    for="confirmpassword"
+                    class="block text-sm font-medium text-gray-700"
+                    >Confirme Password</label
+                  >
+                  <div class="mt-1">
                     <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                      id="confirmpassword"
+                      name="password"
+                      type="password"
+                      autocomplete="current-password"
+                      required
+                      class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     />
-                    <label
-                      for="remember-me"
-                      class="ml-2 block text-sm text-gray-900"
-                      >Remember me</label
-                    >
                   </div>
+                  <span id="emailError" class="hidden text-sm text-red-500"
+                    >Please enter a password with atleast 8 characters
+                  </span>
                 </div>
-
                 <div>
                   <button
                     type="submit"
@@ -117,11 +156,12 @@
       <div class="relative hidden w-0 flex-1 lg:block">
         <img
           class="absolute inset-0 h-full w-full object-cover"
-          src="./img/login.jpg"
+          src="./img/registration.jpg"
           alt=""
         />
       </div>
     </div>
+    <!-- This example requires Tailwind CSS v2.0+ -->
     <footer class="bg-white">
       <div class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration</title>
+    <title>LogIn</title>
     <script type="module" src="./js/main.js" defer></script>
     <script type="module" src="./js/signup.js" defer></script>
   </head>
@@ -29,16 +29,8 @@
         <div class="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <h1 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">
-              Registrer as a user
+              LogIn
             </h1>
-            <p class="mt-2 text-sm text-gray-600">
-              Or
-              <a
-                href="login.html"
-                class="font-medium text-indigo-600 hover:text-indigo-500"
-                >Sign in to your account</a
-              >
-            </p>
           </div>
           <div class="mt-8">
             <div>
@@ -77,6 +69,7 @@
                     >Please enter your first name
                   </span>
                 </div>
+              <form action="#" method="POST" class="space-y-6">
                 <div>
                   <label
                     for="email"
@@ -124,20 +117,7 @@
                     >Your password must be more than 8 characters
                   </span>
                 </div>
-                <div class="space-y-1">
-                  <label
-                    for="password"
-                    class="block text-sm font-medium text-gray-700"
-                    >Confirme Password</label
-                  >
-                  <div class="mt-1">
-                    <input
-                      id="confirmpassword"
-                      name="password"
-                      type="password"
-                      autocomplete="current-password"
-                      class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    />
+              
                   </div>
                   <span
                     id="passwordErrorNotMatch"
@@ -151,6 +131,7 @@
                     requierd
                   </span>
                 </div>
+
                 <div>
                   <button
                     type="submit"
@@ -167,12 +148,11 @@
       <div class="relative hidden w-0 flex-1 lg:block">
         <img
           class="absolute inset-0 h-full w-full object-cover"
-          src="./img/registration.jpg"
+          src="./img/login.jpg"
           alt=""
         />
       </div>
     </div>
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <footer class="bg-white">
       <div class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
