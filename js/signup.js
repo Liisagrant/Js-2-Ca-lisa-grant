@@ -27,7 +27,7 @@ console.log(confirmPassword);
 console.log(confirmPasswordError);
 console.log(PasswordNoMatchError);
 
-const submitForm = (event) => {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   let isFirstNameOK = false;
@@ -89,9 +89,36 @@ const submitForm = (event) => {
 
   if (isFormValid) {
     console.log("YAAAAY ALL GOOD PAL 😍");
-  } else {
-    console.log("NOOOO ITS Bad 🥶");
-  }
-};
+    const userData = {
+      name: firstName.value,
+      email: email.value,
+      password: password.value,
+    };
 
-form.addEventListener("submit", submitForm);
+    const REG_USER_URL_ENDPOINT = SIGN_UP_URL;
+    (async function userSignUp() {
+      try {
+        const response = await fetch(REG_USER_URL_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          console.log("good request");
+          location.replace("/");
+        } else {
+          console.log("lag generel melding");
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  } else {
+    console.log("sorry bad request");
+  }
+});
