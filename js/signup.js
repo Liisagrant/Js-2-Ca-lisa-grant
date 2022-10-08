@@ -110,7 +110,7 @@ form.addEventListener("submit", function (event) {
 
         if (response.ok) {
           console.log("good request");
-          location.replace("/");
+          // location.replace("/");
         } else {
           console.log("lag generel melding");
         }
