@@ -1,9 +1,25 @@
 import { GET_POST_URL } from "./settings/api";
-import { getToken } from "./utils/storage";
+import { getToken, getUserName } from "./utils/storage";
+import moment from "moment";
 
+const userName = getUserName();
+console.log(userName);
+const greetUserContainer = document.querySelector("#greetings");
+console.log(greetUserContainer);
 const postContainer = document.querySelector("#post-container");
 console.log(postContainer);
 const accessToken = getToken();
+if (!accessToken) {
+  location.href = "/login.html";
+}
+
+const greetUser = () => {
+  greetUserContainer.innerHTML = `
+ GOOD DAY ${userName} 🤙🏼
+ `;
+};
+
+greetUser();
 
 (async function getAllPosts() {
   const response = await fetch(GET_POST_URL, {
@@ -18,6 +34,7 @@ const accessToken = getToken();
     const posts = await response.json();
     console.log(posts);
     console.log("posts are here:):)");
+    let now = moment(new Date());
     if (!posts.length) {
       postContainer.innerHTML = "Sorry no posts today";
     } else {
@@ -27,15 +44,16 @@ const accessToken = getToken();
         console.log(body);
         console.log(title);
         console.log(created);
+        const daysSinceCreated = now.diff(created, "day");
 
         postContainer.innerHTML += `
         <ul role="list" class="divide-y divide-gray-200">
             <li class="py-4">
               <div class="flex space-x-3">
-                <div class="flex-1 space-y-1">
+                <div class="flex-1 space-y-1 bg-slate-200 px-2 py-2 rounded-md">
                   <div class="flex items-center justify-between">
                     <h3 class="text-sm font-medium">${title}</h3>
-                    <p class="text-sm text-gray-500">${created}</p>
+                    <p class="text-sm text-gray-500">posted ${daysSinceCreated}</p>
                   </div>
                   <p class="text-sm text-gray-500">
                     ${body}
