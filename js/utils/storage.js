@@ -45,3 +45,5 @@ const getFromStorage = (key) => {
 const clearStorage = () => {
   localStorage.clear();
 };
+
+export { getUserName };
