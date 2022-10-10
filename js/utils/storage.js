@@ -46,4 +46,4 @@ const clearStorage = () => {
   localStorage.clear();
 };
 
-export { getUserName };
+export { getUserName, saveToken, saveUser };
