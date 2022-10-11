@@ -4,7 +4,7 @@ import moment from "moment";
 
 const userName = getUserName();
 console.log(userName);
-const greetUserContainer = document.querySelector("#greetings");
+const greetUserContainer = document.querySelector("#greeting");
 console.log(greetUserContainer);
 const postContainer = document.querySelector("#post-container");
 console.log(postContainer);
@@ -15,7 +15,11 @@ if (!accessToken) {
 
 const greetUser = () => {
   greetUserContainer.innerHTML = `
- GOOD DAY ${userName} 🤙🏼
+        <h1
+            class="font-bold text-white text-center text-lg mx-auto max-w-3xl px-8 sm:px-6 lg:max-w-7xl lg:px-8"
+          >
+            Hello 👋🏼 ${userName}
+        </h1>
  `;
 };
 
