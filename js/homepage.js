@@ -140,6 +140,7 @@ createPostForm.addEventListener("submit", (event) => {
         const data = await response.json();
         console.log(data);
         console.log("YAAAY POST IS CREATED:)");
+        window.location.reload();
       } else {
         const err = await response.json();
         const message = "create post faild";
