@@ -7,35 +7,30 @@
     <title>LogIn</title>
     <script type="module" src="./js/main.js" defer></script>
     <script type="module" src="./js/homepage.js" defer></script>
-    <script type="module" src="./js/components/nav.js" defer></script>
   </head>
   <body>
     <div class="min-h-full">
-      <header class="bg-cyan-700 pb-24">
+      <header class="bg-cyan-700">
+        <nav
+          id="nav-bar"
+          class="flex text-sm mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+        ></nav>
+        <div id="greeting">
+          <h1
+            class="font-bold text-white text-lg mx-auto max-w-3xl px-8 sm:px-6 lg:max-w-7xl lg:px-8"
+          >
+            Hello 👋🏼 user
+          </h1>
+        </div>
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div
-            class="relative flex items-center justify-center py-5 lg:justify-between"
-          >
-            <!-- Search -->
-            <div class="min-w-0 flex-1 px-12 lg:hidden">
-              <div class="mx-auto w-full max-w-xs">
-                <label for="desktop-search" class="sr-only">Search</label>
-                <div class="relative text-white focus-within:text-gray-600">
-                  <div
-                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
+            class="relative flex items-center justify-center py-2 lg:justify-between"
+          ></div>
           <div class="border-t border-white border-opacity-20 py-5 lg:block">
-            <div class="grid grid-cols-3 items-center gap-8">
-              <div class="col-span-2">
-                <nav id="nav-bar" class="flex space-x-4"></nav>
-              </div>
+            <div class="items-center">
               <div>
                 <div class="mx-auto w-full max-w-md">
-                  <label for="mobile-search" class="sr-only">Search</label>
+                  <label for="search" class="sr-only">Search</label>
                   <div class="relative text-white focus-within:text-gray-600">
                     <div
                       class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
@@ -66,10 +61,6 @@
                 </div>
               </div>
             </div>
-            <h1
-              id="greetings"
-              class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 font-black text-3xl text-white"
-            ></h1>
           </div>
         </div>
       </header>
