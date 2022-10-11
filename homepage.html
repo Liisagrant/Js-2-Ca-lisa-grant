@@ -65,6 +65,28 @@
         </div>
       </header>
       <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                <div class="mx-auto max-w-lg">
+        <form id="create-post" action="#" method="POST" class="grid grid-cols-1 gap-y-6 px-6 py-6 my-4 bg-slate-300 rounded-md">
+          <div>
+            <label for="title" class="sr-only">Title</label>
+            <input type="text" name="title" id="title" autocomplete="title" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Title">
+          </div>
+          <span id="titleError" class="hidden text-sm text-red-500"
+                    >Please enter a title.
+          </span>
+          <div>
+            <label for="message" class="sr-only">Message</label>
+            <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Message"></textarea>
+          </div>
+          <span id="messageError" class="hidden text-sm text-red-500"
+                    >Please enter a message.
+          </span>
+          <div class="flex justify-center">
+            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-cyan-700 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+          </div>
+        </form>
+      </div>
+        <div class="max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div
           id="post-container"
           class="max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"

@@ -1,5 +1,6 @@
-import { GET_POST_URL } from "./settings/api";
+import { GET_POST_URL, CREATE_POST_URL } from "./settings/api";
 import { getToken, getUserName } from "./utils/storage";
+import { checkLength } from "./utils/validation";
 import moment from "moment";
 
 const userName = getUserName();
@@ -77,4 +78,78 @@ greetUser();
 })().catch((err) => {
   console.log("sorry get post faild:(");
   console.log(err);
+});
+
+const createPostForm = document.querySelector("#create-post");
+console.log(createPostForm);
+
+const titlePost = document.querySelector("#title");
+console.log(titlePost);
+
+const titleError = document.querySelector("#titleError");
+console.log(titleError);
+
+const messagePost = document.querySelector("#message");
+console.log(messagePost);
+
+const messageError = document.querySelector("#messageError");
+console.log(messageError);
+
+createPostForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  let isTitlePostOk = false;
+  if (checkLength(titlePost.value, 0)) {
+    titleError.classList.add("hidden");
+    isTitlePostOk = true;
+  } else {
+    titleError.classList.remove("hidden");
+  }
+
+  let isMessagePostOk = false;
+  if (checkLength(messagePost.value, 2)) {
+    messageError.classList.add("hidden");
+    isMessagePostOk = true;
+  } else {
+    messageError.classList.remove("hidden");
+  }
+
+  let isPostFormValid = isTitlePostOk & isMessagePostOk;
+  if (isPostFormValid) {
+    console.log("validation is good");
+    console.log(titlePost.value);
+    console.log(messagePost.value);
+    const postData = {
+      title: titlePost.value,
+      body: messagePost.value,
+    };
+    console.log(postData);
+    const accessToken = getToken();
+
+    (async function createNewPost() {
+      const response = await fetch(CREATE_POST_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(postData),
+      });
+      console.log("post created response", response);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        console.log("YAAAY POST IS CREATED:)");
+      } else {
+        const err = await response.json();
+        const message = "create post faild";
+        throw new Error(message);
+      }
+      createPostForm.reset();
+    })().catch((err) => {
+      console.log(err);
+    });
+  } else {
+    console.log("This faild");
+  }
 });
