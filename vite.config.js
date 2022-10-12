@@ -8,6 +8,8 @@ export default {
         SignUp: resolve(__dirname, "signup.html"),
         home: resolve(__dirname, "homepage.html"),
         myPosts: resolve(__dirname, "my-posts.html"),
+        editPost: resolve(__dirname, "edit-post.html"),
+        postDetail: resolve(__dirname, "post-detail.html"),
       },
     },
   },
