@@ -45,13 +45,14 @@ greetUser();
     } else {
       const listofPosts = posts.map((post) => {
         console.log(post);
-        const { body, title, created } = post;
+        const { body, title, created, id } = post;
         console.log(body);
         console.log(title);
         console.log(created);
         const daysSinceCreated = now.diff(created, "day");
 
         postContainer.innerHTML += `
+        <a href ="post-detail.html?id=${id}">
         <ul role="list" class="divide-y divide-gray-200">
             <li class="py-4">
               <div class="flex space-x-3">
@@ -67,6 +68,7 @@ greetUser();
               </div>
             </li>
           </ul>
+          </a>
         `;
       });
     }
