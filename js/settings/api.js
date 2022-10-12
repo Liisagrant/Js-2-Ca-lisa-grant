@@ -14,6 +14,7 @@ const GET_USER_POSTS =
   BASE_URL + `api/v1/social/profiles/${userName}?_posts=true`;
 const GET_POST_BY_ID_URL = BASE_URL + "api/v1/social/posts";
 const EDIT_POST_URL = BASE_URL + "api/v1/social/posts";
+const DELETE_POST_URL = BASE_URL + `api/v1/social/posts`;
 
 export {
   BASE_URL,
@@ -24,4 +25,5 @@ export {
   GET_USER_POSTS,
   GET_POST_BY_ID_URL,
   EDIT_POST_URL,
+  DELETE_POST_URL,
 };

@@ -1,4 +1,4 @@
-import { GET_USER_POSTS } from "./settings/api";
+import { GET_USER_POSTS, DELETE_POST_URL } from "./settings/api";
 import { getToken } from "./utils/storage";
 import moment from "moment";
 
@@ -49,7 +49,7 @@ const GetMyUserPosts = async () => {
           </div>
           <div class="flex justify-evenly">
             <a href="/edit-post.html?id=${post.id}"<button class="bg-cyan-400 px-4 py-2 rounded-md">Edit</button></a>
-            <button class="bg-red-300 px-4 py-2 rounded-md">Delete</button>
+            <button data-id=${post.id} class="delet-btn bg-red-300 px-4 py-2 rounded-md">Delete</button>
           </div>
         </div>
         
@@ -61,4 +61,53 @@ const GetMyUserPosts = async () => {
     console.log("FAILED");
   }
 };
-GetMyUserPosts();
+
+GetMyUserPosts().then(() => {
+  handledeleteBtnsEvent();
+});
+
+function handledeleteBtnsEvent() {
+  let deletButtons = document.getElementsByClassName("delet-btn");
+  console.log(deletButtons);
+  const totalDeletBtns = deletButtons.length;
+  for (let i = 0; i < totalDeletBtns; i++) {
+    console.log("index of each delet btn", i);
+    deletButtons[i].addEventListener("click", function () {
+      console.log("you have triggerd click event");
+      console.log("this.dataset.postId", this.dataset);
+      console.log("this.dataset.postId", this.dataset.id);
+      console.log("this.dataset.postId", this.getAttribute("data-id"));
+      const postId = this.dataset.id;
+      handleDeletPostById(postId);
+    });
+  }
+}
+
+function handleDeletPostById(id) {
+  console.log(id);
+  console.log("delet post has been clicked");
+
+  const deletUserById = async () => {
+    try {
+      let response = await fetch(`${DELETE_POST_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      if (response.status === 200) {
+        console.log("post is deleted");
+        GetMyUserPosts().then(() => {
+          handledeleteBtnsEvent;
+        });
+      } else {
+        const err = await response.json();
+        const message = `Sorry we have an error ${err}`;
+        throw Error(message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  deletUserById().then((r) => {});
+}
