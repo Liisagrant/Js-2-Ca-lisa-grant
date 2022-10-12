@@ -48,7 +48,7 @@ const GetMyUserPosts = async () => {
             <p class="py-1">Written by: ${post.owner}</p>
           </div>
           <div class="flex justify-evenly">
-            <button class="bg-cyan-400 px-4 py-2 rounded-md">Edit</button>
+            <a href="/edit-post.html?id=${post.id}"<button class="bg-cyan-400 px-4 py-2 rounded-md">Edit</button></a>
             <button class="bg-red-300 px-4 py-2 rounded-md">Delete</button>
           </div>
         </div>
