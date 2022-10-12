@@ -15,6 +15,8 @@ const GET_USER_POSTS =
 const GET_POST_BY_ID_URL = BASE_URL + "api/v1/social/posts";
 const EDIT_POST_URL = BASE_URL + "api/v1/social/posts";
 const DELETE_POST_URL = BASE_URL + `api/v1/social/posts`;
+const SORT_ASC_URL =
+  BASE_URL + "api/v1/social/posts?sort=created&sortOrder=asc&offset=10";
 
 export {
   BASE_URL,
@@ -26,4 +28,5 @@ export {
   GET_POST_BY_ID_URL,
   EDIT_POST_URL,
   DELETE_POST_URL,
+  SORT_ASC_URL,
 };
