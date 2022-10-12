@@ -10,5 +10,14 @@ const LOG_IN_URL = BASE_URL + "api/v1/social/auth/login";
 
 const GET_POST_URL = BASE_URL + "api/v1/social/posts";
 const CREATE_POST_URL = BASE_URL + "api/v1/social/posts";
+const GET_USER_POSTS =
+  BASE_URL + `api/v1/social/profiles/${userName}?_posts=true`;
 
-export { BASE_URL, SIGN_UP_URL, LOG_IN_URL, GET_POST_URL, CREATE_POST_URL };
+export {
+  BASE_URL,
+  SIGN_UP_URL,
+  LOG_IN_URL,
+  GET_POST_URL,
+  CREATE_POST_URL,
+  GET_USER_POSTS,
+};
