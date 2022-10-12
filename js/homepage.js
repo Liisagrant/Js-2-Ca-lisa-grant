@@ -1,4 +1,4 @@
-import { GET_POST_URL, CREATE_POST_URL } from "./settings/api";
+import { GET_POST_URL, CREATE_POST_URL, SORT_ASC_URL } from "./settings/api";
 import { getToken, getUserName } from "./utils/storage";
 import { checkLength } from "./utils/validation";
 import moment from "moment";
@@ -59,7 +59,7 @@ greetUser();
                 <div class="flex-1 space-y-1 bg-slate-200 px-2 py-2 rounded-md">
                   <div class="flex items-center justify-between">
                     <h3 class="text-sm font-medium">${title}</h3>
-                    <p class="text-sm text-gray-500">posted ${daysSinceCreated}</p>
+                    <p class="text-sm text-gray-500">posted: ${daysSinceCreated} days ago</p>
                   </div>
                   <p class="text-sm text-gray-500">
                     ${body}
@@ -157,3 +157,61 @@ createPostForm.addEventListener("submit", (event) => {
   }
 });
 
+const newestPostBTN = document.querySelector("#new-post-btn");
+console.log(newestPostBTN);
+const oldestPostBTN = document.querySelector("#old-post-btn");
+console.log(oldestPostBTN);
+
+const postContainerAsc = document.querySelector("#postAsc-container");
+
+oldestPostBTN.addEventListener("click", () => {
+  getPostAsc();
+});
+
+const getPostAsc = async () => {
+  try {
+    const response = await fetch(SORT_ASC_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    console.log(response);
+    if (response.ok) {
+      const postsAsc = await response.json();
+      console.log(postsAsc);
+      let now = moment(new Date());
+      if (!postsAsc.length) {
+        postContainer.innerHTML = "Sorry no post today!";
+      } else {
+        const listofPosts = postsAsc.map((postAsc) => {
+          const { body, title, created, id } = postAsc;
+          console.log(postAsc);
+          const daysSinceCreated = now.diff(created, "day");
+
+          postContainerAsc.innerHTML += `
+        <a href ="post-detail.html?id=${id}">
+        <ul role="list" class="divide-y divide-gray-200">
+            <li class="py-4">
+              <div class="flex space-x-3">
+                <div class="flex-1 space-y-1 bg-slate-200 px-2 py-2 rounded-md">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-medium">${title}</h3>
+                    <p class="text-sm text-gray-500">posted: ${daysSinceCreated} days ago </p>
+                  </div>
+                  <p class="text-sm text-gray-500">
+                    ${body}
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          </a>
+        `;
+        });
+      }
+    }
+  } finally {
+  }
+};
