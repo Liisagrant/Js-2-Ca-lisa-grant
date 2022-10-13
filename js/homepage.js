@@ -210,8 +210,17 @@ const getPostAsc = async () => {
           </a>
         `;
         });
+        postContainerAsc.classList.remove("hidden");
       }
     }
   } finally {
   }
 };
+
+const removeOldPopst = () => {
+  postContainerAsc.classList.add("hidden");
+};
+
+newestPostBTN.addEventListener("click", () => {
+  removeOldPopst();
+});
