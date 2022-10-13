@@ -4,7 +4,7 @@ import { checkLength } from "./utils/validation";
 
 const accessToken = getToken();
 if (!accessToken) {
-  location.href = "/login.html";
+  location.href = "/index.html";
 }
 
 const editPostForm = document.querySelector("#edit-post");

@@ -6,7 +6,7 @@ let now = moment(new Date());
 
 const accessToken = getToken();
 if (!accessToken) {
-  location.href = "/login.html";
+  location.href = "/index.html";
 }
 
 const myPostsContianer = document.querySelector("#myPostsContainer");
@@ -92,7 +92,7 @@ function handleDeletPostById(id) {
 
   const deletUserById = async () => {
     try {
-      let response = await fetch(`${DELETE_POST_URL}/${post.id}`, {
+      let response = await fetch(`${DELETE_POST_URL}/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${accessToken}`,

@@ -22,7 +22,7 @@ const myNavBar = () => {
       `;
     if (userName) {
       navBarLinks = `
-            <a class="px-1 py-4" href="#">
+            <a class="px-1 py-4" href="/homepage.html">
               <span class="text-white px-4 py-8 text-2xl font-bold">PALS</span>
             </a>
             <li class="px-2 py-6">

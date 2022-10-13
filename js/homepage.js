@@ -11,7 +11,7 @@ const postContainer = document.querySelector("#post-container");
 console.log(postContainer);
 const accessToken = getToken();
 if (!accessToken) {
-  location.href = "/login.html";
+  location.href = "/index.html";
 }
 
 const greetUser = () => {

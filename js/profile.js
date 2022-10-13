@@ -1,5 +1,11 @@
 import { getToken } from "./utils/storage";
+import { GET_PROFILE } from "./settings/api";
+
 const accessToken = getToken();
 if (!accessToken) {
-  location.href = "/login.html";
+  location.href = "/index.html";
 }
+
+console.log(GET_PROFILE);
+
+

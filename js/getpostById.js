@@ -7,8 +7,9 @@ const searchParam = new URLSearchParams(paramstring);
 const postID = searchParam.get("id");
 const accessToken = getToken();
 if (!accessToken) {
-  location.href = "/login.html";
+  location.href = "/index.html";
 }
+
 const SinglePostsContainer = document.querySelector("#SinglePostsContainer");
 
 console.log(accessToken);
