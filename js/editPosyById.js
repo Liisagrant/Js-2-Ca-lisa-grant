@@ -3,6 +3,9 @@ import { GET_POST_BY_ID_URL, EDIT_POST_URL } from "./settings/api";
 import { checkLength } from "./utils/validation";
 
 const accessToken = getToken();
+if (!accessToken) {
+  location.href = "/login.html";
+}
 
 const editPostForm = document.querySelector("#edit-post");
 console.log(editPostForm);

@@ -5,6 +5,9 @@ import moment from "moment";
 let now = moment(new Date());
 
 const accessToken = getToken();
+if (!accessToken) {
+  location.href = "/login.html";
+}
 
 const myPostsContianer = document.querySelector("#myPostsContainer");
 console.log(myPostsContianer);
@@ -89,7 +92,7 @@ function handleDeletPostById(id) {
 
   const deletUserById = async () => {
     try {
-      let response = await fetch(`${DELETE_POST_URL}/${id}`, {
+      let response = await fetch(`${DELETE_POST_URL}/${post.id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${accessToken}`,

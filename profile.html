@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LogIn</title>
     <script type="module" src="./js/main.js" defer></script>
-    <script type="module" src="./js/homepage.js" defer></script>
+    <script type="module" src="./js/profile.js" defer></script>
   </head>
   <body>
     <div class="min-h-full">
       <header class="bg-cyan-700">
-        <nav
-          id="nav-bar"
-          class="flex text-sm mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-        ></nav>
+        <nav id="nav-bar" class="flex text-sm mx-auto max-w-3xl px-4"></nav>
         <div id="greeting"></div>
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div
@@ -57,78 +54,44 @@
           </div>
         </div>
       </header>
-      <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div class="mx-auto max-w-lg">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="mx-auto max-w-4xl">
           <form
-            id="create-post"
+            id="profile-from"
             action="#"
             method="POST"
             class="grid grid-cols-1 gap-y-6 px-6 py-6 my-4 bg-slate-300 rounded-md"
           >
+            <div class="flex justify-center">
+              <div class="img-default"></div>
+            </div>
             <div>
-              <label for="title" class="sr-only">Title</label>
+              <label for="Name" class="sr-only">Name</label>
               <input
                 type="text"
-                name="title"
-                id="title"
-                autocomplete="title"
+                name="name"
+                id="name"
+                autocomplete="name"
                 class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                placeholder="Title"
               />
             </div>
-            <span id="titleError" class="hidden text-sm text-red-500"
-              >Please enter a title.
-            </span>
             <div>
-              <label for="message" class="sr-only">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
+              <label for="user-id" class="sr-only">Name</label>
+              <input
+                type="text"
+                name="user-id"
+                id="user-id"
+                autocomplete="user-id"
                 class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                placeholder="Message"
-              ></textarea>
+              />
             </div>
+
             <span id="messageError" class="hidden text-sm text-red-500"
               >Please enter a message.
             </span>
-            <div class="flex justify-center">
-              <button
-                type="submit"
-                class="inline-flex justify-center rounded-md border border-transparent bg-cyan-700 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-cyan-500 focus:outline-none"
-              >
-                Submit
-              </button>
-            </div>
           </form>
-          <div class="flex justify-evenly">
-            <button
-              type="submit"
-              id="old-post-btn"
-              class="inline-flex justify-center rounded-md border border-transparent bg-cyan-700 py-1 px-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500 focus:outline-none"
-            >
-              Old posts
-            </button>
-            <button
-              type="submit"
-              id="new-post-btn"
-              class="inline-flex justify-center rounded-md border border-transparent bg-cyan-700 py-1 px-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500 focus:outline-none"
-            >
-              New posts
-            </button>
-          </div>
         </div>
-        <div class="max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div
-            id="postAsc-container"
-            class="max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 hidden"
-          ></div>
-        </div>
-        <div
-          id="post-container"
-          class="max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-        ></div>
-      </main>
+      </div>
       <footer class="bg-white">
         <div
           class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8"
