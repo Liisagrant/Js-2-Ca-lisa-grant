@@ -1,4 +1,5 @@
 import { SIGN_UP_URL } from "./settings/api";
+import { saveToken } from "./utils/storage";
 import { validEmail, validatePassword, checkLength } from "./utils/validation";
 
 const form = document.querySelector("#signup-form");
@@ -110,7 +111,7 @@ form.addEventListener("submit", function (event) {
 
         if (response.ok) {
           console.log("good request");
-          location.replace("/homepage.html");
+          location.href = "./index.html";
         } else {
           console.log("lag generel melding");
         }
