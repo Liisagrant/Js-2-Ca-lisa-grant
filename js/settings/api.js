@@ -1,13 +1,11 @@
 import { getUserName } from "../utils/storage";
 
 const userName = getUserName();
-console.log(userName);
 
 const BASE_URL = "https://nf-api.onrender.com/";
 
 const SIGN_UP_URL = BASE_URL + "api/v1/social/auth/register";
 const LOG_IN_URL = BASE_URL + "api/v1/social/auth/login";
-
 const GET_POST_URL = BASE_URL + "api/v1/social/posts";
 const CREATE_POST_URL = BASE_URL + "api/v1/social/posts";
 const GET_USER_POSTS =
@@ -17,8 +15,7 @@ const EDIT_POST_URL = BASE_URL + "api/v1/social/posts";
 const DELETE_POST_URL = BASE_URL + `api/v1/social/posts`;
 const SORT_ASC_URL =
   BASE_URL + "api/v1/social/posts?sort=created&sortOrder=asc";
-  const GET_PROFILE =
-  BASE_URL + `api/v1/social/profiles/${userName}`
+const GET_PROFILE = BASE_URL + `api/v1/social/profiles/${userName}`;
 
 export {
   BASE_URL,
@@ -31,5 +28,5 @@ export {
   EDIT_POST_URL,
   DELETE_POST_URL,
   SORT_ASC_URL,
-  GET_PROFILE
+  GET_PROFILE,
 };

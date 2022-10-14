@@ -87,8 +87,7 @@ if (logInForm) {
           location.href = "/homepage.html";
         } else {
           const errorError = await response.json();
-          const message = `Sorry there is an error ${errorError.message}`;
-          console.log(" login faild");
+          const message = `Error: ${errorError.message}`;
           throw new Error(message);
         }
       })().catch((errorError) => {

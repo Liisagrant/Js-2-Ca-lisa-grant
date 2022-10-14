@@ -2,8 +2,6 @@ const tokenKey = "token";
 const userKey = "user";
 
 const saveToken = (token) => {
-  console.log("token:", token);
-  console.log("tokenKey", tokenKey);
   saveToStorage(tokenKey, token);
 };
 

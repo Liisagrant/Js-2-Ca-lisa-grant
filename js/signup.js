@@ -28,11 +28,13 @@ console.log(confirmPassword);
 console.log(confirmPasswordError);
 console.log(PasswordNoMatchError);
 
+const errorIfNogoodSignup = document.querySelector("#error-signup-user");
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   let isFirstNameOK = false;
-  if (checkLength(firstName.value, 0) === true) {
+  if (checkLength(firstName.value, 1) === true) {
     firstNameError.classList.add("hidden");
     isFirstNameOK = true;
   } else {
@@ -40,7 +42,7 @@ form.addEventListener("submit", function (event) {
   }
 
   let isEmailOk = false;
-  if (checkLength(email.value, 0)) {
+  if (checkLength(email.value, 1)) {
     emailError.classList.add("hidden");
     isEmailOk = true;
   } else {
@@ -48,10 +50,10 @@ form.addEventListener("submit", function (event) {
   }
 
   let isEmailValidOk = false;
-  if (checkLength(email.value, 0) && validEmail(email.value) === true) {
+  if (checkLength(email.value, 1) && validEmail(email.value) === true) {
     emailNotValid.classList.add("hidden");
     isEmailValidOk = true;
-  } else if (checkLength(email.value, 0) && validEmail(email.value) === false) {
+  } else if (checkLength(email.value, 1) && validEmail(email.value) === false) {
     emailNotValid.classList.remove("hidden");
   }
 
@@ -113,10 +115,12 @@ form.addEventListener("submit", function (event) {
           console.log("good request");
           location.href = "./index.html";
         } else {
-          console.log("lag generel melding");
+          const errorError = await response.json();
+          const message = `Error: ${errorError.message}`;
+          throw new Error(message);
         }
       } catch (e) {
-        console.log(e);
+        errorIfNogoodSignup.innerHTML = `${errorError.message}`;
       }
     })();
   } else {
