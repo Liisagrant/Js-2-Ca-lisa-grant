@@ -10,6 +10,7 @@ export default {
         myPosts: resolve(__dirname, "my-posts.html"),
         editPost: resolve(__dirname, "edit-post.html"),
         postDetail: resolve(__dirname, "post-detail.html"),
+        profile: resolve(__dirname, "profile.html"),
       },
     },
   },
