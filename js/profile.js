@@ -5,7 +5,3 @@ const accessToken = getToken();
 if (!accessToken) {
   location.href = "/index.html";
 }
-
-console.log(GET_PROFILE);
-
-
