@@ -4,11 +4,9 @@ import { checkLength } from "./utils/validation";
 import moment from "moment";
 
 const userName = getUserName();
-console.log(userName);
 const greetUserContainer = document.querySelector("#greeting");
-console.log(greetUserContainer);
 const postContainer = document.querySelector("#post-container");
-console.log(postContainer);
+
 const accessToken = getToken();
 if (!accessToken) {
   location.href = "/index.html";
@@ -26,7 +24,18 @@ const greetUser = () => {
 
 greetUser();
 
-(async function getAllPosts() {
+const searchBar = document.querySelector("#search");
+let data = [];
+
+searchBar.addEventListener("keyup", (e) => {
+  const searchString = e.target.value.toLowerCase();
+  const filteredPosts = data.filter((post) => {
+    return post.title.toLowerCase().includes(searchString);
+  });
+  showData(filteredPosts);
+});
+
+async function getAllPosts() {
   const response = await fetch(GET_POST_URL, {
     method: "GET",
     headers: {
@@ -34,25 +43,28 @@ greetUser();
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log("get all posts", response);
   if (response.ok) {
-    const posts = await response.json();
-    console.log(posts);
-    console.log("posts are here:):)");
-    let now = moment(new Date());
-    if (!posts.length) {
-      postContainer.innerHTML = "Sorry no posts today";
-    } else {
-      const listofPosts = posts.map((post) => {
-        console.log(post);
+    data = await response.json();
+    showData(data);
+  } else {
+    const error = await response.json();
+    const errorMessage = `Sorry, there is an error ${error}`;
+  }
+}
+
+const showData = (data) => {
+  postContainer.innerHTML = "";
+  let now = moment(new Date());
+  if (!data.length) {
+    postContainer.innerHTML = "Sorry no posts today";
+  } else {
+    const listofPosts = data
+      .map((post) => {
         const { body, title, created, id } = post;
-        console.log(body);
-        console.log(title);
-        console.log(created);
         const daysSinceCreated = now.diff(created, "day");
 
-        postContainer.innerHTML += `
-        <a href ="post-detail.html?id=${id}">
+        return `
+         <a href ="post-detail.html?id=${id}">
         <ul role="list" class="divide-y divide-gray-200">
             <li class="py-4">
               <div class="flex space-x-3">
@@ -69,33 +81,22 @@ greetUser();
             </li>
           </ul>
           </a>
-        `;
-      });
-    }
-  } else {
-    const err = await response.json();
-    const message = `sorry some error ${err}`;
-    throw new Error(message);
+  `;
+      })
+      .join("");
+    postContainer.insertAdjacentHTML("beforeend", listofPosts);
   }
-})().catch((err) => {
-  console.log("sorry get post faild:(");
-  console.log(err);
+};
+
+getAllPosts().then(() => {
+  showData(data);
 });
 
 const createPostForm = document.querySelector("#create-post");
-console.log(createPostForm);
-
 const titlePost = document.querySelector("#title");
-console.log(titlePost);
-
 const titleError = document.querySelector("#titleError");
-console.log(titleError);
-
 const messagePost = document.querySelector("#message");
-console.log(messagePost);
-
 const messageError = document.querySelector("#messageError");
-console.log(messageError);
 
 createPostForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -118,14 +119,10 @@ createPostForm.addEventListener("submit", (event) => {
 
   let isPostFormValid = isTitlePostOk & isMessagePostOk;
   if (isPostFormValid) {
-    console.log("validation is good");
-    console.log(titlePost.value);
-    console.log(messagePost.value);
     const postData = {
       title: titlePost.value,
       body: messagePost.value,
     };
-    console.log(postData);
     const accessToken = getToken();
 
     (async function createNewPost() {
@@ -140,8 +137,6 @@ createPostForm.addEventListener("submit", (event) => {
       console.log("post created response", response);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
-        console.log("YAAAY POST IS CREATED:)");
         window.location.reload();
       } else {
         const err = await response.json();
@@ -158,9 +153,7 @@ createPostForm.addEventListener("submit", (event) => {
 });
 
 const newestPostBTN = document.querySelector("#new-post-btn");
-console.log(newestPostBTN);
 const oldestPostBTN = document.querySelector("#old-post-btn");
-console.log(oldestPostBTN);
 
 const postContainerAsc = document.querySelector("#postAsc-container");
 
@@ -177,17 +170,14 @@ const getPostAsc = async () => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    console.log(response);
     if (response.ok) {
       const postsAsc = await response.json();
-      console.log(postsAsc);
       let now = moment(new Date());
       if (!postsAsc.length) {
         postContainer.innerHTML = "Sorry no post today!";
       } else {
         const listofPosts = postsAsc.map((postAsc) => {
           const { body, title, created, id } = postAsc;
-          console.log(postAsc);
           const daysSinceCreated = now.diff(created, "day");
 
           postContainerAsc.innerHTML += `
