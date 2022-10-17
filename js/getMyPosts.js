@@ -90,10 +90,10 @@ function handleDeletPostById(id) {
                 });
             } else {
                 const err = await response.json();
-                const message = `Sorry we have an error ${err}`;
+                const message = `Sorry we have an error ${err.message}`;
                 throw Error(message);
             }
-        } catch (error) {
+        } catch (err) {
             postNotification.innerHTML = `${err.message}`;
         }
     };
