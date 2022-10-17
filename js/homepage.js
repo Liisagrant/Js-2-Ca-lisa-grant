@@ -30,7 +30,10 @@ let data = [];
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
   const filteredPosts = data.filter((post) => {
-    return post.title.toLowerCase().includes(searchString);
+    return (
+      post.title.toLowerCase().includes(searchString) ||
+      post.body.toLowerCase().includes(searchString)
+    );
   });
   showData(filteredPosts);
 });
@@ -85,6 +88,7 @@ const showData = (data) => {
       })
       .join("");
     postContainer.insertAdjacentHTML("beforeend", listofPosts);
+    postContainer.classList.remove("hidden");
   }
 };
 
@@ -157,8 +161,22 @@ const oldestPostBTN = document.querySelector("#old-post-btn");
 const postContainerAsc = document.querySelector("#postAsc-container");
 
 oldestPostBTN.addEventListener("click", () => {
+  removeNewestPost();
   getPostAsc();
 });
+
+const removeOldPopst = () => {
+  postContainerAsc.classList.add("hidden");
+};
+
+newestPostBTN.addEventListener("click", () => {
+  removeOldPopst();
+  getAllPosts();
+});
+
+const removeNewestPost = () => {
+  postContainer.classList.add("hidden");
+};
 
 const getPostAsc = async () => {
   try {
@@ -205,12 +223,3 @@ const getPostAsc = async () => {
   } finally {
   }
 };
-
-const removeOldPopst = () => {
-  postContainerAsc.classList.add("hidden");
-};
-
-newestPostBTN.addEventListener("click", () => {
-  removeOldPopst();
-  getAllPosts();
-});
