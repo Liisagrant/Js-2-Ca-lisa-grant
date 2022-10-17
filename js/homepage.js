@@ -134,7 +134,6 @@ createPostForm.addEventListener("submit", (event) => {
         },
         body: JSON.stringify(postData),
       });
-      console.log("post created response", response);
       if (response.ok) {
         const data = await response.json();
         window.location.reload();

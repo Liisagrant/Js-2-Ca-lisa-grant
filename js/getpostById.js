@@ -12,10 +12,6 @@ if (!accessToken) {
 
 const SinglePostsContainer = document.querySelector("#SinglePostsContainer");
 
-console.log(accessToken);
-console.log(GET_POST_BY_ID_URL);
-console.log(postID);
-
 let now = moment(new Date());
 
 const getPostById = async () => {
@@ -26,15 +22,8 @@ const getPostById = async () => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log(response);
   const data = await response.json();
-  console.log(data);
   const { title, body, created, updated, id } = data;
-  console.log(title);
-  console.log(body);
-  console.log(created);
-  console.log(updated);
-  console.log(id);
 
   const minuteSinceCreated = now.diff(created, "minutes");
   const minutesSinceUpdate = now.diff(updated, "minutes");
@@ -56,6 +45,7 @@ const getPostById = async () => {
         </div>
 
   `;
+  document.title = `${title}`;
 };
 
 getPostById();
