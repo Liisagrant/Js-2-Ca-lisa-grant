@@ -10,10 +10,7 @@ if (!accessToken) {
 }
 
 const myPostsContianer = document.querySelector("#myPostsContainer");
-console.log(myPostsContianer);
-
 const postNotification = document.querySelector(".post-notification");
-console.log(postNotification);
 
 const GetMyUserPosts = async () => {
   const response = await fetch(GET_USER_POSTS, {
@@ -24,7 +21,6 @@ const GetMyUserPosts = async () => {
   });
   if (response.ok) {
     const data = await response.json();
-    console.log("POSTS ARE HERE:");
     myPostsContianer.innerHTML = "";
     const { posts } = data;
     if (!posts.length) {
@@ -33,7 +29,6 @@ const GetMyUserPosts = async () => {
     } else {
       const numberOfPosts = posts.length;
       for (let post of posts) {
-        console.log(posts);
         const minuteSinceCreated = now.diff(post.created, "minutes");
         myPostsContianer.innerHTML += `
         <div class=" bg-slate-200 px-6 py-6 rounded-md">
@@ -61,7 +56,7 @@ const GetMyUserPosts = async () => {
     }
   } else {
     postNotification.innerHTML = await response.json();
-    console.log("FAILED");
+    myPostsContianer.innerHTML = "Sorry we have an issue";
   }
 };
 
@@ -71,15 +66,9 @@ GetMyUserPosts().then(() => {
 
 function handledeleteBtnsEvent() {
   let deletButtons = document.getElementsByClassName("delet-btn");
-  console.log(deletButtons);
   const totalDeletBtns = deletButtons.length;
   for (let i = 0; i < totalDeletBtns; i++) {
-    console.log("index of each delet btn", i);
     deletButtons[i].addEventListener("click", function () {
-      console.log("you have triggerd click event");
-      console.log("this.dataset.postId", this.dataset);
-      console.log("this.dataset.postId", this.dataset.id);
-      console.log("this.dataset.postId", this.getAttribute("data-id"));
       const postId = this.dataset.id;
       handleDeletPostById(postId);
     });
@@ -87,9 +76,6 @@ function handledeleteBtnsEvent() {
 }
 
 function handleDeletPostById(id) {
-  console.log(id);
-  console.log("delet post has been clicked");
-
   const deletUserById = async () => {
     try {
       let response = await fetch(`${DELETE_POST_URL}/${id}`, {
@@ -99,7 +85,6 @@ function handleDeletPostById(id) {
         },
       });
       if (response.status === 200) {
-        console.log("post is deleted");
         GetMyUserPosts().then(() => {
           handledeleteBtnsEvent;
         });
@@ -109,7 +94,7 @@ function handleDeletPostById(id) {
         throw Error(message);
       }
     } catch (error) {
-      console.log(error);
+      postNotification.innerHTML = `${err.message}`;
     }
   };
   deletUserById().then((r) => {});

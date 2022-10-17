@@ -1,6 +1,7 @@
 import { getToken } from "./utils/storage";
 import { GET_POST_BY_ID_URL, EDIT_POST_URL } from "./settings/api";
 import { checkLength } from "./utils/validation";
+import { Document } from "postcss";
 
 const accessToken = getToken();
 if (!accessToken) {
@@ -8,15 +9,11 @@ if (!accessToken) {
 }
 
 const editPostForm = document.querySelector("#edit-post");
-console.log(editPostForm);
 const titleEdit = document.querySelector("#title");
-console.log(titleEdit);
 const titleEditError = document.querySelector("#titleError");
-console.log(titleEditError);
 const messageEdit = document.querySelector("#message");
-console.log(messageEdit);
 const messageeditError = document.querySelector("#messageError");
-console.log(messageeditError);
+const formEditError = document.querySelector("#formEditError");
 
 const paramstring = window.location.search;
 const searchParam = new URLSearchParams(paramstring);
@@ -30,16 +27,9 @@ const getPostById = async () => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log(response);
   if (response.status === 200) {
     const data = await response.json();
-    console.log(data);
     const { title, body, created, updated, id } = data;
-    console.log(title);
-    console.log(body);
-    console.log(created);
-    console.log(updated);
-    console.log(id);
     titleEdit.value = title;
     messageEdit.value = body;
   } else {
@@ -74,16 +64,11 @@ editPostForm.addEventListener("submit", (event) => {
   let isFormEditValid = isMessageEditOk && isTitleEditOk;
 
   if (isFormEditValid) {
-    console.log("Valid form");
-    console.log(titleEdit.value);
-    console.log(messageEdit.value);
     const postData = {
       title: titleEdit.value,
       body: messageEdit.value,
     };
-    console.log(postData);
     const accessToken = getToken();
-    console.log(accessToken);
 
     (async function editPost() {
       const response = await fetch(`${EDIT_POST_URL}/${postID}`, {
@@ -95,11 +80,8 @@ editPostForm.addEventListener("submit", (event) => {
         body: JSON.stringify(postData),
       });
 
-      console.log("post edition response", response);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
-        console.log("edit post all good");
         location.href = `post-detail.html?id=${postID}`;
       } else {
         const err = await response.json();
@@ -108,9 +90,9 @@ editPostForm.addEventListener("submit", (event) => {
       }
       editPostForm.reset();
     })().catch((err) => {
-      console.log(err);
+      formEditError.innerHTML = `${err.message}`;
     });
   } else {
-    console.log("validation faild");
+    formEditError.innerHTML = "Sorry! we have an error";
   }
 });

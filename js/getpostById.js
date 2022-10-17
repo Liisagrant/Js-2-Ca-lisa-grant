@@ -37,6 +37,7 @@ const getPostById = async () => {
   console.log(id);
 
   const minuteSinceCreated = now.diff(created, "minutes");
+  const minutesSinceUpdate = now.diff(updated, "minutes");
   SinglePostsContainer.innerHTML = `
           <div class=" bg-slate-200 px-6 py-6 rounded-md">
         <div>
@@ -48,6 +49,9 @@ const getPostById = async () => {
           </div>
           <div>
             <p class="py-1" >created: ${minuteSinceCreated} minutes ago</p>
+          </div>
+                    <div>
+            <p class="font-medium py-1">Last updated: ${minutesSinceUpdate} minutes ago</p>
           </div>
         </div>
 

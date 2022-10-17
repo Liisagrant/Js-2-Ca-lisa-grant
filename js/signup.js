@@ -1,33 +1,17 @@
 import { SIGN_UP_URL } from "./settings/api";
-import { saveToken } from "./utils/storage";
 import { validEmail, validatePassword, checkLength } from "./utils/validation";
 
 const form = document.querySelector("#signup-form");
-
 const firstName = document.querySelector("#firstname");
 const firstNameError = document.querySelector("#firstnameError");
-console.log(firstName);
-console.log(firstNameError);
-
 const email = document.querySelector("#email");
 const emailNotValid = document.querySelector("#emailErrorNotValid");
 const emailError = document.querySelector("#emailError");
-console.log(email);
-console.log(emailNotValid);
-console.log(emailError);
-
 const password = document.querySelector("#password");
 const passwordError = document.querySelector("#passwordError");
-console.log(password);
-console.log(passwordError);
-
 const confirmPassword = document.querySelector("#confirmpassword");
 const confirmPasswordError = document.querySelector("#confirmpasswordError");
 const PasswordNoMatchError = document.querySelector("#passwordErrorNotMatch");
-console.log(confirmPassword);
-console.log(confirmPasswordError);
-console.log(PasswordNoMatchError);
-
 const errorIfNogoodSignup = document.querySelector("#error-signup-user");
 
 form.addEventListener("submit", function (event) {
@@ -91,7 +75,6 @@ form.addEventListener("submit", function (event) {
     isPasswordMatch;
 
   if (isFormValid) {
-    console.log("YAAAAY ALL GOOD PAL 😍");
     const userData = {
       name: firstName.value,
       email: email.value,
@@ -112,7 +95,6 @@ form.addEventListener("submit", function (event) {
         const data = await response.json();
 
         if (response.ok) {
-          console.log("good request");
           location.href = "./index.html";
         } else {
           const errorError = await response.json();

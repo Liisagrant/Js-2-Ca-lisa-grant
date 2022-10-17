@@ -3,22 +3,12 @@ import { validEmail, checkLength } from "./utils/validation";
 import { saveUser, saveToken } from "./utils/storage";
 
 const logInForm = document.querySelector("#login-form");
-console.log(logInForm);
-
 const email = document.querySelector("#email");
-console.log(email);
 const emailError = document.querySelector("#emailError");
-console.log(emailError);
 const emailNotValid = document.querySelector("#emailErrorNotValid");
-console.log(emailNotValid);
-
 const password = document.querySelector("#password");
-console.log(password);
 const passwordError = document.querySelector("#passwordError");
-console.log(passwordError);
-
 const allOverError = document.querySelector("#AlloverError");
-console.log(allOverError);
 
 if (logInForm) {
   logInForm.addEventListener("submit", (event) => {
@@ -54,7 +44,6 @@ if (logInForm) {
     let isFormValid = isEmailOk && isEmailValidOk && isPasswordOK;
 
     if (isFormValid) {
-      console.log("form is valid:)");
       const userData = {
         email: email.value,
         password: password.value,
@@ -73,17 +62,13 @@ if (logInForm) {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
-          console.log(data.accessToken);
           saveToken(data.accessToken);
 
           const userToSave = {
             name: data.name,
             email: data.email,
           };
-          console.log(userToSave);
           saveUser(userToSave);
-          console.log("login succeed");
           location.href = "/homepage.html";
         } else {
           const errorError = await response.json();
