@@ -31,8 +31,8 @@ searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
   const filteredPosts = data.filter((post) => {
     return (
-      post.title.toLowerCase().includes(searchString) ||
-      post.body.toLowerCase().includes(searchString)
+      (post.title && post.title.toLowerCase().includes(searchString)) ||
+      (post.body && post.body.toLowerCase().includes(searchString))
     );
   });
   showData(filteredPosts);
