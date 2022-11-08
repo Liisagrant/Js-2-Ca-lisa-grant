@@ -26,7 +26,7 @@ const getProfileInfo = async () => {
             <p class="font-medium py-1">User email: ${data.email}</p>
           </div>
           <div class="flex justify-center">
-            <img src="./img/profile.jpg" class="w-36 rounded-full mt-6" />
+            <img src="./img/profile.jpg" class="w-36 rounded-full mt-6" alt="profile picture"/>
           </div>
         </div>
 

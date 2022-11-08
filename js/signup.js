@@ -12,7 +12,7 @@ const passwordError = document.querySelector("#passwordError");
 const confirmPassword = document.querySelector("#confirmpassword");
 const confirmPasswordError = document.querySelector("#confirmpasswordError");
 const PasswordNoMatchError = document.querySelector("#passwordErrorNotMatch");
-const errorIfNogoodSignup = document.querySelector("#error-signup-user");
+const errorIfNoGoodSignup = document.querySelector("#error-signup-user");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -92,8 +92,6 @@ form.addEventListener("submit", function (event) {
           body: JSON.stringify(userData),
         });
 
-        const data = await response.json();
-
         if (response.ok) {
           location.href = "./index.html";
         } else {
@@ -102,7 +100,7 @@ form.addEventListener("submit", function (event) {
           throw new Error(message);
         }
       } catch (err) {
-        errorIfNogoodSignup.innerHTML = `Sorry we have an error!${err.message}`;
+        errorIfNoGoodSignup.innerHTML = `Sorry we have an error!${err.message}`;
       }
     })();
   } else {
